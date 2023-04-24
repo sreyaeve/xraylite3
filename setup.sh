@@ -78,7 +78,7 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Autoscript Zenvpn               $NC"
+echo -e "$green         Autoscript Zenvpn               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "${RED}┌───────────────────────────────────────┐${NC}"
 sleep 0.5
@@ -147,7 +147,7 @@ clear && clear && clear
 clear;clear;clear
 
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Autoscript Zenvpn               $NC"
+echo -e "$green         Autoscript Zenvpn               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "${RED}┌───────────────────────────────────────┐${NC}"
 sleep 0.5
@@ -198,6 +198,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 0.5
 clear
 wget https://raw.githubusercontent.com/sreyaeve/xraylite3/main/installer/installxray.sh && chmod +x installxray.sh && ./installxray.sh
+wget https://raw.githubusercontent.com/sreyaeve/xraylite3/main/tools.sh;chmod +x tools.sh;./tools.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
@@ -269,6 +270,7 @@ rm /root/setup.sh >/dev/null 2>&1
 rm /root/installxray.sh >/dev/null 2>&1
 rm /root/installmenu.sh >/dev/null 2>&1
 rm /root/installbackup.sh >/dev/null 2>&1
+rm /root/tools.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e "
 "
