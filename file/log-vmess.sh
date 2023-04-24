@@ -29,7 +29,7 @@ echo -e "  ${YB}You have no existing clients!${NC}"
 echo -e "${CYAN}————————————————————————————————————————————————————${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
-m-vless
+m-vmess
 fi
 clear
 echo -e "${CYAN}————————————————————————————————————————————————————${NC}"
@@ -43,11 +43,11 @@ echo -e "${YB}tap enter to go back${NC}"
 echo -e "${CYAN}————————————————————————————————————————————————————${NC}"
 read -rp "Input Username : " user
 if [ -z $user ]; then
-m-vless
+m-vmess
 else
 clear
 echo -e "`cat "/etc/xraylog/log-vmess-$user.txt"`"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
-m-vless
+m-vmess
 fi
