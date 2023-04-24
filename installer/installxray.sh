@@ -544,7 +544,7 @@ wget -O trialssws "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/fil
 wget -O del-ssws "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/del-ssws.sh" && chmod +x del-ssws
 wget -O renew-ssws "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/renew-ssws.sh" && chmod +x renew-ssws
 wget -O cek-ss "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/cek-ss.sh" && chmod +x cek-ss
-wget -O log-ss "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/log-ss.sh" && chmod +x log-ss.sh
+wget -O log-ss "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/log-ss.sh" && chmod +x log-ss
 
 sleep 0.5
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
