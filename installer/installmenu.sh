@@ -60,9 +60,6 @@ apt dist-upgrade -y
 apt-get remove --purge ufw firewalld -y
 apt-get remove --purge exim4 -y
 
-#install jq
-apt -y install jq
-
 #install shc
 apt -y install shc
 
@@ -76,11 +73,6 @@ gem install lolcat
 
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-
-#Setting Information
-curl -s ipinfo.io/city >> /usr/local/etc/xray/city
-curl -s ipinfo.io/org | cut -d " " -f 2-10 >> /usr/local/etc/xray/org
-curl -s ipinfo.io/timezone >> /usr/local/etc/xray/timezone
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
