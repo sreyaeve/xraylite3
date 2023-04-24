@@ -122,7 +122,7 @@ echo -e "id             : ${uuid}" | tee -a /etc/xraylog/log-vmess-$user.txt
 echo -e "alterId        : 0" | tee -a /etc/xraylog/log-vmess-$user.txt
 echo -e "Security       : auto" | tee -a /etc/xraylog/log-vmess-$user.txt
 echo -e "Network        : ws" | tee -a /etc/xraylog/log-vmess-$user.txt
-echo -e "Path           : /vmess • /bebas" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Path           : /vmess • /multipath • (suka-suka)" | tee -a /etc/xraylog/log-vmess-$user.txt
 echo -e "Service Name   : vmess-grpc" | tee -a /etc/xraylog/log-vmess-$user.txt
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
 echo -e "Link TLS       : ${vmesslink1}" | tee -a /etc/xraylog/log-vmess-$user.txt
