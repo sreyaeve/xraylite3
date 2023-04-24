@@ -75,7 +75,6 @@ cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
 cpu_usage+=" %"
 ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
 WKT=$(cat /usr/local/etc/xray/timezone)
 DAY=$(date +%A)
 DATE=$(date +%m/%d/%Y)
@@ -114,8 +113,7 @@ echo -e "\e[36m OS            \e[0m:  "`hostnamectl | grep "Operating System" | 
 echo -e "\e[36m ISP           \e[0m:  $ISP"
 echo -e "\e[36m IP VPS        \e[0m:  $IPVPS"
 echo -e "\e[36m Domain        \e[0m:  $domain"
-echo -e "\e[36m Region        \e[0m:  $CITY"
-echo -e "\e[36m Waktu         \e[0m:  $WKT"
+echo -e "\e[36m Region        \e[0m:  $WKT"
 echo -e "\e[36m System Uptime \e[0m:  $uptime"			
 echo -e "\e[36m RAM Usage     \e[0m:  $uram MB | $tram MB"
 echo -e "${RED}┌─────────────────────────────────────────────────┐${NC}"
