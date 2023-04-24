@@ -39,6 +39,14 @@ touch /etc/v2ray/domain
 touch /etc/xray/scdomain
 touch /etc/v2ray/scdomain
 
+rm /usr/local/etc/xray/city >> /dev/null 2>&1
+rm /usr/local/etc/xray/org >> /dev/null 2>&1
+rm /usr/local/etc/xray/timezone >> /dev/null 2>&1
+
+curl -s ipinfo.io/city >> /usr/local/etc/xray/city
+curl -s ipinfo.io/org | cut -d " " -f 2-10 >> /usr/local/etc/xray/org
+curl -s ipinfo.io/timezone >> /usr/local/etc/xray/timezone
+
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
@@ -199,7 +207,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 0.5
 clear
 wget https://raw.githubusercontent.com/sreyaeve/xraylite3/main/installer/installxray.sh && chmod +x installxray.sh && ./installxray.sh
-wget https://raw.githubusercontent.com/sreyaeve/xraylite3/main/tools.sh;chmod +x tools.sh;./tools.sh
+wget https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/tools.sh;chmod +x tools.sh;./tools.sh
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
