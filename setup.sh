@@ -98,8 +98,8 @@ read -p "$( echo -e "${GREEN}Ketik Disini ! ${NC}(${YELLOW}1/2${NC})${NC} " )" c
 if [[ $choose_domain == "2" ]]; then # // Using Automatic Domain
 # // String / Request Data
 sub=$(</dev/urandom tr -dc a-z | head -c4)
-DOMAIN=xraypro.biz.id
-SUB_DOMAIN=vip.${sub}.xraypro.biz.id
+DOMAIN=vpncantik.tech
+SUB_DOMAIN=vip.${sub}.vpncantik.tech
 CF_ID=cloudflaredomainpanel@gmail.com
 CF_KEY=91b7451cf8fed9cbc1c4ca31931ffce8741f6
 set -euo pipefail
