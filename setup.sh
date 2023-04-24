@@ -61,17 +61,14 @@ clear
 mkdir -p /var/lib/zenhost >/dev/null 2>&1
 echo "IP=" >> /var/lib/zenhost/ipvps.conf
 
+mkdir -p /usr/local/etc/xray
 rm /usr/local/etc/xray/city >> /dev/null 2>&1
 rm /usr/local/etc/xray/org >> /dev/null 2>&1
 rm /usr/local/etc/xray/timezone >> /dev/null 2>&1
 
-region=$( curl -s ipinfo.io/city )
-isp=$( curl -s ipinfo.io/org | cut -d " " -f 2-10 )
-waktu=$( curl -s ipinfo.io/timezone )
-
-echo $region > /usr/local/etc/xray/city
-echo $isp > /usr/local/etc/xray/org
-echo $waktu > /usr/local/etc/xray/timezone
+curl -s ipinfo.io/city >> /usr/local/etc/xray/city
+curl -s ipinfo.io/org | cut -d " " -f 2-10 >> /usr/local/etc/xray/org
+curl -s ipinfo.io/timezone >> /usr/local/etc/xray/timezone
 echo ""
 clear
 # ==========================================
