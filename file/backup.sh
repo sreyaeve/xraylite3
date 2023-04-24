@@ -65,4 +65,4 @@ echo -e "Detail Backup
  "${RED}└───────────────────────────────────────┘${NC}" 
 "
 echo "Silahkan copy Link dan restore di VPS baru"
-echo "Terimkasih sudah menggunakan layanan ZenVPN"
+echo "Terimakasih sudah menggunakan layanan ZenVPN"
