@@ -200,7 +200,7 @@ wget -O bw "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/bw.sh
 wget -O m-tcp "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/file/tcp.sh"
 
 wget -O xp "https://raw.githubusercontent.com/sreyaeve/xraylite/main/ssh/xp.sh"
-wget -O gotop "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/gotop.sh"
+#wget -O gotop "https://raw.githubusercontent.com/sreyaeve/xraylite3/main/gotop.sh"
 
 chmod +x menu
 chmod +x m-vmess
@@ -221,7 +221,7 @@ chmod +x restart
 chmod +x bw
 chmod +x m-tcp
 chmod +x xp
-chmod +x gotop
+#chmod +x gotop
 
 cd
 cat > /etc/cron.d/re_otm <<-END
