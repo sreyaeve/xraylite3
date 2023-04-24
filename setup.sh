@@ -33,7 +33,7 @@ fi
 apt install jq curl -y
 mkdir -p /etc/xray
 mkdir -p /etc/v2ray
-mkdir /user >> /dev/null 2>&1
+mkdir /etc/xraylog >> /dev/null 2>&1
 touch /etc/xray/domain
 touch /etc/v2ray/domain
 touch /etc/xray/scdomain
