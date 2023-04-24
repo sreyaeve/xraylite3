@@ -20,6 +20,7 @@ clear
 echo -e "${CYAN}┌─────────────────────────────────────────────────┐${NC}"
 echo -e "${CYAN}│${NC} ${COLBG1}            • RESTORE PANEL MENU •             ${NC} ${CYAN}│$NC"
 echo -e "${CYAN}└─────────────────────────────────────────────────┘${NC}"
+echo ""
 echo "This Feature Can Only Be Used According To Vps Data With This Autoscript"
 echo "Please input link to your vps data backup file."
 echo -e ""
@@ -66,5 +67,12 @@ sleep 1
 rm -f /root/backup/backup.zip &> /dev/null
 echo -e "${CYAN}└─────────────────────────────────────────────────┘${NC}" 
 echo ""
-read -n 1 -s -r -p "   Press any key to back on menu"
-menu-backup
+echo "Disarankan Reboot Setelah Restore"
+echo ""
+echo -ne "[ ${yell}WARNING${NC} ] Reboot Sekarang ? (y/n)? "
+read answer
+if [ "$answer" == "${answer#[Yy]}" ] ;then
+exit 0
+else
+reboot
+fi
