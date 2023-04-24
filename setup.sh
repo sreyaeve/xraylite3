@@ -40,17 +40,6 @@ touch /etc/v2ray/domain
 touch /etc/xray/scdomain
 touch /etc/v2ray/scdomain
 
-rm /usr/local/etc/xray/city >> /dev/null 2>&1
-rm /usr/local/etc/xray/org >> /dev/null 2>&1
-rm /usr/local/etc/xray/timezone >> /dev/null 2>&1
-
-region=$( curl -s ipinfo.io/city )
-isp=$( curl -s ipinfo.io/org | cut -d " " -f 2-10 )
-waktu=( curl -s ipinfo.io/timezone )
-echo $region > /usr/local/etc/xray/city
-echo $isp > /usr/local/etc/xray/org
-echo $waktu > /usr/local/etc/xray/timezone
-
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
@@ -72,6 +61,17 @@ clear
 mkdir -p /var/lib/zenhost >/dev/null 2>&1
 echo "IP=" >> /var/lib/zenhost/ipvps.conf
 
+rm /usr/local/etc/xray/city >> /dev/null 2>&1
+rm /usr/local/etc/xray/org >> /dev/null 2>&1
+rm /usr/local/etc/xray/timezone >> /dev/null 2>&1
+
+region=$( curl -s ipinfo.io/city )
+isp=$( curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+waktu=$( curl -s ipinfo.io/timezone )
+
+echo $region > /usr/local/etc/xray/city
+echo $isp > /usr/local/etc/xray/org
+echo $waktu > /usr/local/etc/xray/timezone
 echo ""
 clear
 # ==========================================
