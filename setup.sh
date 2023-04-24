@@ -31,6 +31,7 @@ if [[ "$hst" != "$dart" ]]; then
 echo "$localip $(hostname)" >> /etc/hosts
 fi
 apt install jq curl -y
+apt install curl sudo -y
 mkdir -p /etc/xray
 mkdir -p /etc/v2ray
 mkdir /etc/xraylog >> /dev/null 2>&1
