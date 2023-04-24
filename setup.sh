@@ -44,9 +44,12 @@ rm /usr/local/etc/xray/city >> /dev/null 2>&1
 rm /usr/local/etc/xray/org >> /dev/null 2>&1
 rm /usr/local/etc/xray/timezone >> /dev/null 2>&1
 
-curl -s ipinfo.io/city >> /usr/local/etc/xray/city
-curl -s ipinfo.io/org | cut -d " " -f 2-10 >> /usr/local/etc/xray/org
-curl -s ipinfo.io/timezone >> /usr/local/etc/xray/timezone
+region=$( curl -s ipinfo.io/city )
+isp=$( curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+waktu=( curl -s ipinfo.io/timezone )
+echo $region > /usr/local/etc/xray/city
+echo $isp > /usr/local/etc/xray/org
+echo $waktu > /usr/local/etc/xray/timezone
 
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
@@ -55,9 +58,6 @@ start=$(date +%s)
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
-curl -s ipinfo.io/city >> /usr/local/etc/xray/city
-curl -s ipinfo.io/org | cut -d " " -f 2-10 >> /usr/local/etc/xray/org
-curl -s ipinfo.io/timezone >> /usr/local/etc/xray/timezone
 clear
 echo -e "[ ${green}INFO${NC} ] Preparing the install file"
 apt install git curl -y >/dev/null 2>&1
@@ -73,8 +73,6 @@ mkdir -p /var/lib/zenhost >/dev/null 2>&1
 echo "IP=" >> /var/lib/zenhost/ipvps.conf
 
 echo ""
-#wget -q https://raw.githubusercontent.com/sreyaeve/xraylite3/main/tools.sh;chmod +x tools.sh;./tools.sh
-#rm tools.sh
 clear
 # ==========================================
 # Color
