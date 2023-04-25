@@ -8,7 +8,6 @@ echo -e ""
 echo -e " [\e[36m•1\e[0m] Restart All Services"
 echo -e " [\e[36m•2\e[0m] Restart Nginx"
 echo -e " [\e[36m•3\e[0m] Restart XRAY"
-echo -e " [\e[36m•4\e[0m] Restart WEBSOCKET"
 echo -e ""
 echo -e " [\e[31m•0\e[0m] \e[31mBACK TO MENU\033[0m"
 echo -e   ""
@@ -73,25 +72,6 @@ case $Restart in
                 systemctl restart xray.service
                 sleep 0.5
                 echo -e "[ \033[36mInfo\033[0m ] XRAY Service Restarted"
-                echo ""
-                echo -e "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-                echo ""
-                read -n 1 -s -r -p "Press any key to back on system menu"
-                restart
-                ;;
-                4)
-                clear
-                echo -e "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-                echo -e "           • RESTART MENU •             "
-                echo -e "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-                echo -e ""
-                echo -e "[ \033[36mInfo\033[0m ] Restart Begin"
-                sleep 1
-                echo -e "[ \033[36mok\033[0m ] Restarting websocket Service (via systemctl) "
-                sleep 0.5
-                systemctl restart ws-stunnel.service
-                sleep 0.5
-                echo -e "[ \033[36mInfo\033[0m ] WEBSOCKET Service Restarted"
                 echo ""
                 echo -e "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
                 echo ""
