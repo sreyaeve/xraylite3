@@ -75,35 +75,35 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 clear
 
-# STATUS SERVICE  NGINX
+# STATUS SERVICE NGINX
 if [[ $nginx_service == "running" ]]; then 
    nginx_status=" ${GREEN}Running ${NC}( No Error )"
 else
    nginx_status="${RED}  Not Running ${NC}  ( Error )"
 fi
 
-# STATUS SERVICE  VNSTAT 
+# STATUS SERVICE VNSTAT 
 if [[ $vnstat_service == "running" ]]; then 
    status_vnstat=" ${GREEN}Running ${NC}( No Error )"
 else
    status_vnstat="${RED}  Not Running ${NC}  ( Error )"
 fi
 
-# STATUS SERVICE  CRONS 
+# STATUS SERVICE CRONS 
 if [[ $cron_service == "running" ]]; then 
    status_cron=" ${GREEN}Running ${NC}( No Error )"
 else
    status_cron="${RED}  Not Running ${NC}  ( Error )"
 fi
 
-# STATUS SERVICE  FAIL2BAN 
+# STATUS SERVICE FAIL2BAN 
 if [[ $fail2ban_service == "running" ]]; then 
    status_fail2ban=" ${GREEN}Running ${NC}( No Error )"
 else
    status_fail2ban="${RED}  Not Running ${NC}  ( Error )"
 fi
 
-# STATUS SERVICE  TLS 
+# STATUS SERVICE TLS 
 if [[ $tls_v2ray_status == "running" ]]; then 
    status_tls_v2ray=" ${GREEN}Running${NC} ( No Error )"
 else
@@ -177,7 +177,7 @@ echo -e "   ⚡ Public IP   : $MYIP"
 echo -e "   ⚡ Domain      : $Domen"
 echo -e "   ⚡ Client Name : Zenvio"
 echo -e "   ⚡ Exp Script  : Lifetime"
-echo -e "   ⚡ Version     : XRAY LITE V 2.0"
+echo -e "   ⚡ Version     : XRAY LITE V 3.0"
 echo -e "${RED}└─────────────────────────────────────────────────┘${NC}"
 echo -e "${CYAN}┌─────────────────────────────────────────────────┐${NC}"
 echo -e "\E[31;1;39m                ⇱ SERVICE STATUS ⇲             \E[0m"
