@@ -14,7 +14,7 @@ ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
 tls="$(cat ~/log-install.txt | grep -w "Vmess WS TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess WS none TLS" | cut -d: -f2|sed 's/ //g')"
-user=Vmess-`</dev/urandom tr -dc A-Z0-9 | head -c4`
+user=Vmess-`</dev/urandom tr -dc 0-9 | head -c3`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
@@ -79,31 +79,31 @@ service cron restart > /dev/null 2>&1
 clear
 
 
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "        Trial Vmess              "
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "ISP            : ${ISP}" 
-echo -e "Region         : ${CITY}" 
-echo -e "Port TLS       : 443, 8443, 2053, 2083, 2087, 2096"
-echo -e "Port none TLS  : 80, 2082, 8880, 8080, 2095, 2086, 2052"
-echo -e "Port gRPC      : ${tls}"
-echo -e "id             : ${uuid}"
-echo -e "alterId        : 0"
-echo -e "Security       : auto"
-echo -e "Network        : ws"
-echo -e "Path           : /vmess • /multipath • (suka-suka)"
-echo -e "Service Name   : vmess-grpc"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link TLS       : ${vmesslink1}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link none TLS  : ${vmesslink2}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link gRPC      : ${vmesslink3}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Expired On     : $exp"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "        Trial Vmess              " | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Remarks        : ${user}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Domain         : ${domain}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "ISP            : ${ISP}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Region         : ${CITY}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Port TLS       : 443, 8443, 2053, 2083, 2087, 2096" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Port none TLS  : 80, 2082, 8880, 8080, 2095, 2086, 2052" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Port gRPC      : ${tls}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "id             : ${uuid}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "alterId        : 0" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Security       : auto" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Network        : ws" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Path           : /vmess • /multipath • (suka-suka)" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Service Name   : vmess-grpc" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Link TLS       : ${vmesslink1}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Link none TLS  : ${vmesslink2}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Link gRPC      : ${vmesslink3}" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "Expired On     : $exp" | tee -a /etc/xraylog/log-vmess-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vmess-$user.txt
 echo ""
 
 read -n 1 -s -r -p "Press any key to back"
