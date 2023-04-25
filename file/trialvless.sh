@@ -27,30 +27,30 @@ vlesslink2="vless://${uuid}@${domain}:$none?path=/vless&encryption=none&type=ws#
 vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 systemctl restart xray
 clear
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "         Trial Vless              "
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "ISP            : ${ISP}" 
-echo -e "Region         : ${CITY}" 
-echo -e "Port TLS       : 443, 8443, 2053, 2083, 2087, 2096"
-echo -e "Port none TLS  : 80, 2082, 8880, 8080, 2095, 2086, 2052"
-echo -e "Port gRPC      : $tls"
-echo -e "ID             : ${uuid}"
-echo -e "Encryption     : none"
-echo -e "Network        : ws"
-echo -e "Path           : /vless"
-echo -e "Service Name   : vless-grpc"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link TLS       : ${vlesslink1}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link none TLS  : ${vlesslink2}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link gRPC      : ${vlesslink3}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Expired On     : $exp"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "         Trial Vless              " | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Remarks        : ${user}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Domain         : ${domain}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "ISP            : ${ISP}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Region         : ${CITY}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Port TLS       : 443, 8443, 2053, 2083, 2087, 2096" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Port none TLS  : 80, 2082, 8880, 8080, 2095, 2086, 2052" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Port gRPC      : $tls" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "ID             : ${uuid}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Encryption     : none" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Network        : ws" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Path           : /vless" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Service Name   : vless-grpc" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Link TLS       : ${vlesslink1}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Link none TLS  : ${vlesslink2}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Link gRPC      : ${vlesslink3}" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "Expired On     : $exp" | tee -a /etc/xraylog/log-vless-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-vless-$user.txt
 echo ""
 read -n 1 -s -r -p "Press any key to back"
 m-vless
