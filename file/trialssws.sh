@@ -13,7 +13,7 @@ ISP=$(cat /usr/local/etc/xray/org)
 CITY=$(cat /usr/local/etc/xray/city)
 tls="$(cat ~/log-install.txt | grep -w "Shadowsocks WS TLS" | cut -d: -f2|sed 's/ //g')"
 ntls="$(cat ~/log-install.txt | grep -w "Shadowsocks WS none TLS" | cut -d: -f2|sed 's/ //g')"
-user=Shadow-`</dev/urandom tr -dc A-Z0-9 | head -c4`
+user=Shadow-`</dev/urandom tr -dc 0-9 | head -c3`
 cipher="aes-128-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
@@ -32,30 +32,30 @@ shadowsockslink1="ss://${shadowsocks_base64e}@${domain}:$tls?mode=gun&security=t
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "       Shadowsocks Account            "
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Remarks        : ${user}"
-echo -e "Domain         : ${domain}"
-echo -e "ISP            : ${ISP}" 
-echo -e "Region         : ${CITY}" 
-echo -e "Port TLS       : 443, 8443, 2053, 2083, 2087, 2096"
-echo -e "Port none TLS  : 80, 2082, 8880, 8080, 2095, 2086, 2052"
-echo -e "Port gRPC      : ${tls}"
-echo -e "Password       : ${uuid}"
-echo -e "Ciphers        : ${cipher}"
-echo -e "Network        : ws/grpc"
-echo -e "Path           : /ss-ws"
-echo -e "ServicebName   : ss-grpc"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link TLS       : ${shadowsockslink}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link none TLS  : ${shadowsockslink2}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link gRPC      : ${shadowsockslink1}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Expired On     : $exp"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "       Shadowsocks Account            " | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Remarks        : ${user}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Domain         : ${domain}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "ISP            : ${ISP}"  | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Region         : ${CITY}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Port TLS       : 443, 8443, 2053, 2083, 2087, 2096" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Port none TLS  : 80, 2082, 8880, 8080, 2095, 2086, 2052" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Port gRPC      : ${tls}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Password       : ${uuid}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Ciphers        : ${cipher}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Network        : ws/grpc" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Path           : /ss-ws" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "ServicebName   : ss-grpc" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Link TLS       : ${shadowsockslink}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Link none TLS  : ${shadowsockslink2}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Link gRPC      : ${shadowsockslink1}" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "Expired On     : $exp" | tee -a /etc/xraylog/log-ss-$user.txt
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/xraylog/log-ss-$user.txt
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back"
 m-ssws
