@@ -26,11 +26,13 @@ echo ""
 echo "Mohon Menunggu , Proses Backup sedang berlangsung !!"
 rm -rf /root/backup
 mkdir /root/backup
+cp -r /root/.acme.sh backup/
 cp /etc/passwd backup/
 cp /etc/group backup/
 cp /etc/shadow backup/
 cp /etc/gshadow backup/
 cp /etc/crontab backup/
+cp /etc/ppp/chap-secrets backup/
 cp -r /var/lib/zenhost/ backup/zenhost
 cp -r /etc/xray backup/xray
 cp -r /home/vps/public_html backup/public_html
