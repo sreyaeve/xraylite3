@@ -23,22 +23,23 @@ echo -e "${CYAN}┌────────────────────�
 echo -e "${CYAN}│${NC} ${COLBG1}             • BACKUP PANEL MENU •             ${NC} ${CYAN}│$NC"
 echo -e "${CYAN}└─────────────────────────────────────────────────┘${NC}"
 echo ""
-echo ""
 echo "Mohon Menunggu , Proses Backup sedang berlangsung !!"
 rm -rf /root/backup
 mkdir /root/backup
-cp -r /root/.acme.sh /root/backup/ &> /dev/null
-cp /etc/passwd /root/backup/ &> /dev/null
-cp /etc/group /root/backup/ &> /dev/null
-cp /etc/shadow /root/backup/ &> /dev/null
-cp /etc/gshadow /root/backup/ &> /dev/null
-cp /etc/ppp/chap-secrets /root/backup/chap-secrets &> /dev/null
-cp -r /var/lib/zenhost/ /root/backup/zenhost &> /dev/null
-cp -r /etc/xray /root/backup/xray &> /dev/null
-cp -r /home/vps/public_html /root/backup/public_html &> /dev/null
-cp -r /etc/cron.d /root/backup/cron.d &> /dev/null
-cp /etc/crontab /root/backup/crontab &> /dev/null
-cp /etc/xraylog /root/backup/xraylog &> /dev/null
+cp /etc/passwd backup/
+cp /etc/group backup/
+cp /etc/shadow backup/
+cp /etc/gshadow backup/
+cp /etc/crontab backup/
+cp -r /var/lib/zenhost/ backup/zenhost
+cp -r /etc/xray backup/xray
+cp -r /home/vps/public_html backup/public_html
+cd /root
+zip -r $IP-$date.zip backup > /dev/null 2>&1
+rclone copy /root/$IP-$date.zip dr:backup/
+url=$(rclone link dr:backup/$IP-$date.zip)
+id=(`echo $url | grep '^https' | cut -d'=' -f2`)
+link="https://drive.google.com/u/4/uc?id=${id}&export=download"
 cd /root
 zip -r $IP-$date.zip backup > /dev/null 2>&1
 rclone copy /root/$IP-$date.zip dr:backup/
