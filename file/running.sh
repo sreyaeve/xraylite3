@@ -167,6 +167,9 @@ kernelku=$(uname -r)
 #tipeos2=$(uname -m)
 # GETTING DOMAIN NAME
 Domen="$(cat /etc/xray/domain)"
+Name=$(curl -sS https://raw.githubusercontent.com/sreyaeve/IP-Register/main/ip | grep $MYIP | awk '{print $2}')
+
+Exp=$(curl -sS https://raw.githubusercontent.com/sreyaeve/IP-Register/main/ip | grep $MYIP | awk '{print $3}')
 echo -e ""
 echo -e "${CYAN}┌─────────────────────────────────────────────────┐${NC}"
 echo -e "\E[31;1;39m                  ⇱ INFORMATION ⇲            \E[0m"
@@ -175,8 +178,8 @@ echo -e "${RED}┌────────────────────�
 echo -e "   ⚡ OS Name     : $Tipe"
 echo -e "   ⚡ Public IP   : $MYIP"
 echo -e "   ⚡ Domain      : $Domen"
-echo -e "   ⚡ Client Name : Zenvio"
-echo -e "   ⚡ Exp Script  : Lifetime"
+echo -e "   ⚡ Client Name : $Name"
+echo -e "   ⚡ Exp Script  : $Exp"
 echo -e "   ⚡ Version     : XRAY LITE V 3.0"
 echo -e "${RED}└─────────────────────────────────────────────────┘${NC}"
 echo -e "${CYAN}┌─────────────────────────────────────────────────┐${NC}"
