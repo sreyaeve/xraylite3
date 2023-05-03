@@ -1,6 +1,29 @@
 #!/bin/bash
 MYIP=$(curl -sS ipv4.icanhazip.com)
-echo "WELCOME TO ZEN AREA"
+echo "Checking VPS"
+#########################
+IZIN=$(curl -sS https://raw.githubusercontent.com/sreyaeve/IP-Register/main/ip | awk '{print $4}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mWelcome To Zen Area\e[0m"
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+exit 0
+fi
+#EXPIRED
+expired=$(curl -sS https://raw.githubusercontent.com/sreyaeve/IP-Register/main/ip | grep $MYIP | awk '{print $3}')
+echo $expired > /root/expired.txt
+today=$(date -d +1day +%Y-%m-%d)
+while read expired
+do
+	exp=$(echo $expired | curl -sS https://raw.githubusercontent.com/sreyaeve/IP-Register/main/ip | grep $MYIP | awk '{print $3}')
+	if [[ $exp < $today ]]; then
+		Exp2="\033[1;31mExpired\033[0m"
+        else
+        Exp2=$(curl -sS https://raw.githubusercontent.com/sreyaeve/IP-Register/main/ip | grep $MYIP | awk '{print $3}')
+	fi
+done < /root/expired.txt
+rm /root/expired.txt
+Name=$(curl -sS https://raw.githubusercontent.com/sreyaeve/IP-Register/main/ip | grep $MYIP | awk '{print $2}')
 #########################
 # Color Validation
 DF='\e[39m'
@@ -141,8 +164,8 @@ echo -e   ""
 echo -e   " Press x or [ Ctrl+C ] • To-Exit-Script"
 echo -e   ""
 echo -e "${RED}┌─────────────────────────────────────────────────┐${NC}"
-echo -e "   \e[36mClient Name     \e[0m: Zenvio"
-echo -e "   \e[36mExpired         \e[0m: Lifetime"
+echo -e "   \e[36mClient Name     \e[0m: $Name"
+echo -e "   \e[36mExpired         \e[0m: $Exp2 | $certificate Hari"
 echo -e "   \e[36mVersion         \e[0m: V 3.0 Xray Lite"
 echo -e "   \e[36mAuthor          \e[0m: ZenVPN"
 echo -e "   \e[36mWhatsapp        \e[0m: 081977814343"
