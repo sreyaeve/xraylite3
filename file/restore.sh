@@ -29,29 +29,29 @@ wget -O backup.zip "$url"
 unzip backup.zip
 rm -f backup.zip
 sleep 1
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Starting to restore data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Starting to restore data..."
 rm -f /root/backup/backup.zip &> /dev/null
 sleep 1
 cd /root/backup
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring passwd data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Restoring passwd data..."
 sleep 1
 cp /root/backup/passwd /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring group data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Restoring group data..."
 sleep 1
 cp /root/backup/group /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring shadow data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Restoring shadow data..."
 sleep 1
 cp /root/backup/shadow /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring gshadow data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Restoring gshadow data..."
 sleep 1
 cp /root/backup/gshadow /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring chap-secrets data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Restoring chap-secrets data..."
 sleep 1
 cp /root/backup/chap-secrets /etc/ppp/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring ss.conf data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Restoring ss.conf data..."
 sleep 1
 cp /root/backup/ss.conf /etc/shadowsocks-libev/ss.conf &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring admin data..."
+echo -e "${CYAN}│${NC}  [ ${green}INFO${NC} ] • Restoring admin data..."
 sleep 1
 cp -r /root/backup/zenhost /var/lib/ &> /dev/null
 cp -r /root/backup/.acme.sh /root/ &> /dev/null
