@@ -26,7 +26,6 @@ echo ""
 echo "Mohon Menunggu , Proses Backup sedang berlangsung !!"
 rm -rf /root/backup
 mkdir /root/backup
-cp -r /root/.acme.sh backup/
 cp /etc/passwd backup/
 cp /etc/group backup/
 cp /etc/shadow backup/
